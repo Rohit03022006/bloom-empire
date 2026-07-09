@@ -1,0 +1,49 @@
+    @import "tailwindcss";
+    /* Design tokens: central color variables */
+    :root {
+        --color-background: #1A3A2A;
+        --color-heading: #e7c35f;
+        --color-subheading: #F5F0DC;
+        --color-button: #C9A84C;
+        --color-button-text: #1A3A2A;
+
+        --font-heading: 'Playfair Display', serif;
+        --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+
+    /* apply base background and default text color and fonts */
+    body {
+        font-family: var(--font-sans);
+        background-color: var(--color-background);
+        color: var(--color-subheading);
+    }
+
+    /* Use Playfair for headings */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+    }
+
+    @keyframes marqueeLeft {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@keyframes marqueeRight {
+  0% { transform: translateX(-33.333%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee-left {
+  animation: marqueeLeft 25s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marqueeRight 25s linear infinite;
+}
+
+/* Optional: Creates a premium fade-out effect on the left & right viewport edges */
+.mask-image-horizontal {
+  mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+}
