@@ -12,7 +12,6 @@ export default function Navbar() {
     { name: "About", href: "#about" },
     { name: "Gallery", href: "#gallery" },
     { name: "Process", href: "#process" },
-    { name: "Contact", href: "#contact" },
   ];
 
   return (
@@ -23,13 +22,13 @@ export default function Navbar() {
         borderColor: "rgba(201,168,76,0.2)",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
         {/* Logo */}
         <a href="#home" className="inline-block hover:opacity-90 transition-opacity duration-300">
           <img
             src={logo}
             alt="Bloom Empire"
-            className="h-17 rounded-4xl w-auto object-contain"
+            className="h-12 sm:h-14 rounded-3xl w-auto object-contain"
           />
         </a>
 
@@ -60,7 +59,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button with Animated Icon Swap */}
         <button
-          className="lg:hidden text-3xl focus:outline-none transform active:scale-90 transition-transform duration-200"
+          className="lg:hidden text-2xl sm:text-3xl focus:outline-none transform active:scale-90 transition-transform duration-200 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl"
           style={{ color: "var(--color-heading)" }}
           onClick={() => setOpen(!open)}
           aria-label="Toggle Menu"
@@ -79,20 +78,20 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Panel Container */}
       <div
-        className={`lg:hidden border-t transition-all duration-300 ease-in-out overflow-hidden ${
-          open ? "max-h-[400px] opacity-100 visible" : "max-h-0 opacity-0 invisible"
+        className={`lg:hidden border-b transition-all duration-300 ease-out absolute top-full left-0 w-full shadow-xl ${
+          open ? "translate-y-0 opacity-100 visible" : "-translate-y-4 opacity-0 invisible pointer-events-none"
         }`}
         style={{
           backgroundColor: "var(--color-background)",
-          borderTopColor: "rgba(201,168,76,0.2)",
+          borderColor: "rgba(201,168,76,0.2)",
         }}
       >
-        <div className="flex flex-col p-6 gap-5">
+        <div className="flex flex-col px-4 py-5 sm:p-6 gap-4 sm:gap-5 text-center">
           {navLinks.map((item, index) => (
             <a
               key={item.name}
               href={item.href}
-              className={`text-[var(--color-subheading)] hover:text-[var(--color-heading)] transition-colors duration-200 transform ${
+              className={`text-[var(--color-subheading)] hover:text-[var(--color-heading)] transition-all duration-200 transform ${
                 open ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"
               }`}
               style={{
@@ -106,7 +105,7 @@ export default function Navbar() {
 
           <a
             href="#contact"
-            className={`py-3 rounded-xl font-semibold transform transition-all duration-300 active:scale-98 ${
+            className={`w-full py-3 rounded-xl font-semibold text-center transform transition-all duration-300 active:scale-98 ${
               open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
             style={{
@@ -114,6 +113,7 @@ export default function Navbar() {
               color: "var(--color-button-text)",
               transitionDelay: `${navLinks.length * 50}ms`,
             }}
+            onClick={() => setOpen(false)}
           >
             Contact
           </a>

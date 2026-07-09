@@ -7,6 +7,7 @@ import {
   FiHeart 
 } from "react-icons/fi";
 import { LuSparkles } from "react-icons/lu"; 
+import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 
 const features = [
   {
@@ -37,42 +38,46 @@ const features = [
 ];
 
 export default function WhyBloomEmpire() {
+  const [sectionRef, isVisible] = useIntersectionObserver({ triggerOnce: true, threshold: 0.1 });
+
   return (
     <section 
+      ref={sectionRef}
       id="about"
-      className="py-24 transition-colors duration-300"
-      style={{ backgroundColor: "var(--color-heading)" }} // OPPOSITE: Swapped to heading color
+      className="py-16 sm:py-20 transition-colors duration-300"
+      style={{ backgroundColor: "var(--color-heading)" }}
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-4">
+        <div className={`text-center max-w-2xl mx-auto space-y-3 sm:space-y-4 mb-10 transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
           <h2 
-            className="text-4xl sm:text-5xl font-bold tracking-tight"
-            style={{ color: "var(--color-background)" }} // OPPOSITE: Flipped for visibility
+            className="text-3xl sm:text-5xl font-bold tracking-tight"
+            style={{ color: "var(--color-background)" }}
           >
             Why Bloom Empire?
           </h2>
           <p 
-            className="text-base sm:text-lg opacity-90"
-            style={{ color: "var(--color-background)" }} // OPPOSITE: Flipped to background contrast
+            className="text-sm sm:text-base lg:text-lg opacity-90 px-2"
+            style={{ color: "var(--color-background)" }}
           >
             Crafting custom floral styling layouts that make your living spaces truly unforgettable.
           </p>
         </div>
 
-        {/* Features Layout Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 justify-center">
+        {/* Features Grid — 1 col on mobile, 2 on md, 3 on lg */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {features.map((item, index) => {
             const Icon = item.icon;
 
             return (
               <div
                 key={index}
-                className="group relative p-8 rounded-3xl border transition-all duration-500 overflow-hidden flex flex-col items-start text-left hover:-translate-y-1.5 hover:shadow-xl"
+                className={`group relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl border transition-all duration-500 overflow-hidden flex flex-col items-start text-left hover:-translate-y-1.5 hover:shadow-xl ${isVisible ? "animate-scale-in" : "opacity-0"}`}
                 style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.6)", // Clean contrast fill for dark backgrounds
+                  backgroundColor: "rgba(255, 255, 255, 0.6)",
                   borderColor: "rgba(201,168,76,0.2)",
+                  animationDelay: `${index * 100}ms`,
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = "rgba(201,168,76,0.5)";
@@ -83,36 +88,36 @@ export default function WhyBloomEmpire() {
                   e.currentTarget.style.boxShadow = "none";
                 }}
               >
-                {/* ✿ Watermark icon scaled up and inverted to contrast background */}
+                {/* Watermark */}
                 <span 
-                  className="absolute -bottom-6 -right-8 text-9xl sm:text-[12rem] select-none transition-all duration-700 ease-out transform pointer-events-none opacity-5 group-hover:opacity-20 group-hover:scale-110 group-hover:-rotate-12" 
+                  className="absolute -bottom-6 -right-8 text-8xl sm:text-[12rem] select-none transition-all duration-700 ease-out transform pointer-events-none opacity-5 group-hover:opacity-20 group-hover:scale-110 group-hover:-rotate-12" 
                   style={{ color: "var(--color-background)" }}
+                  aria-hidden="true"
                 >
                   ✿
                 </span>
 
-                {/* Animated Icon Circle */}
+                {/* Icon */}
                 <div 
-                  className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-6"
+                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center text-xl sm:text-2xl mb-4 sm:mb-6 shadow-sm transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-6"
                   style={{ 
                     backgroundColor: "rgba(201,168,76,0.15)",
-                    color: "var(--color-background)" // OPPOSITE: Flipped icon color
+                    color: "var(--color-background)",
                   }}
                 >
                   <Icon />
                 </div>
 
-                {/* Content block */}
                 <h3 
-                  className="text-xl font-semibold mb-2 tracking-wide z-10"
-                  style={{ color: "var(--color-background)" }} // OPPOSITE: Flipped header text
+                  className="text-base sm:text-xl font-semibold mb-2 tracking-wide z-10"
+                  style={{ color: "var(--color-background)" }}
                 >
                   {item.title}
                 </h3>
                 
                 <p 
                   className="text-sm leading-relaxed opacity-80 transition-colors duration-300 z-10"
-                  style={{ color: "var(--color-background)" }} // OPPOSITE: Flipped body text
+                  style={{ color: "var(--color-background)" }}
                 >
                   {item.description}
                 </p>

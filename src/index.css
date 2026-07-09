@@ -12,11 +12,18 @@
     }
 
 
+    html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+    }
+
     /* apply base background and default text color and fonts */
     body {
         font-family: var(--font-sans);
         background-color: var(--color-background);
         color: var(--color-subheading);
+        overflow-x: hidden;
+        width: 100%;
     }
 
     /* Use Playfair for headings */
@@ -46,4 +53,75 @@
 .mask-image-horizontal {
   mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+}
+
+/* Custom GPU-Friendly Keyframes & Animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Accessibility: Respect user choices for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

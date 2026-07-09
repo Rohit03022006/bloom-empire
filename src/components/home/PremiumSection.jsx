@@ -1,22 +1,24 @@
+import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 
 const productsRow1 = [
-  { image: "/collection/flower1.jpg", name: "White Chrysanthemum", price: "₹299" },
-  { image: "/collection/flower2.jpg", name: "Dutch White Roses", price: "₹499" },
-  { image: "/collection/flower3.jpg", name: "Peach Roses", price: "₹599" },
-  { image: "/collection/flower4.jpg", name: "Blue Daisies", price: "₹449" },
-  { image: "/collection/flower5.jpg", name: "Purple Asters", price: "₹349" },
+  { image: "/collection/flower1.jpg", name: "White Chrysanthemum" },
+  { image: "/collection/flower2.jpg", name: "Dutch White Roses" },
+  { image: "/collection/flower3.jpg", name: "Peach Roses" },
+  { image: "/collection/flower4.jpg", name: "Blue Daisies" },
+  { image: "/collection/flower5.jpg", name: "Purple Asters" },
 ];
 
 export default function PremiumCollection() {
-  
+  const [sectionRef, isVisible] = useIntersectionObserver({ triggerOnce: true, threshold: 0.1 });
+
   // Reusable Card Component with clean interactions
   const ProductCard = ({ item }) => (
-    <div className="w-65 sm:w-75 shrink-0 group px-3 select-none">
-      <div 
+    <div className="w-[220px] sm:w-[300px] shrink-0 group px-2 sm:px-3 select-none">
+      <div
         className="overflow-hidden rounded-2xl border transition-all duration-300 relative group-hover:shadow-md"
-        style={{ 
+        style={{
           backgroundColor: "rgba(255, 255, 255, 0.03)",
-          borderColor: "rgba(201,168,76,0.15)" 
+          borderColor: "rgba(201,168,76,0.15)"
         }}
       >
         {/* Image Container with Hover Zoom */}
@@ -26,6 +28,7 @@ export default function PremiumCollection() {
             alt={item.name}
             className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             draggable="false"
+            loading="lazy"
           />
         </div>
 
@@ -40,17 +43,17 @@ export default function PremiumCollection() {
   );
 
   return (
-    <section className="py-24 overflow-hidden" style={{ backgroundColor: "var(--color-background)" }}>
-      <div className="max-w-7xl mx-auto px-6 mb-14 text-center">
-        <h2 className="text-4xl sm:text-5xl font-bold tracking-tight" style={{ color: "var(--color-heading)" }}>
+    <section ref={sectionRef} className="py-16 sm:py-24 overflow-hidden" style={{ backgroundColor: "var(--color-background)" }}>
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 mb-10 sm:mb-14 text-center transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
+        <h2 className="text-3xl sm:text-5xl font-bold tracking-tight" style={{ color: "var(--color-heading)" }}>
           Our Premium Collection
         </h2>
         <div className="w-24 h-0.5 mx-auto mt-5 opacity-40" style={{ backgroundColor: "var(--color-heading)" }} />
       </div>
 
       {/* INFINITE MARQUEE SYSTEM WRAPPER */}
-      <div className="space-y-8 w-full relative">
-        
+      <div className={`space-y-8 w-full relative transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "200ms" }}>
+
         {/* ROW 1: Auto Scrolls Leftwards */}
         <div className="flex w-full overflow-x-hidden relative mask-image-horizontal">
           <div className="flex animate-marquee-left whitespace-nowrap hover:[animation-play-state:paused] pointer-events-auto">

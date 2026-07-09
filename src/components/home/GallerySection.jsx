@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 
 const galleryData = [
   {
@@ -34,54 +35,66 @@ const galleryData = [
 ];
 
 export default function GallerySection() {
-  // Track which card indices are flipped
+  const [sectionRef, isVisible] = useIntersectionObserver({ triggerOnce: true, threshold: 0.1 });
   const [flippedCards, setFlippedCards] = useState({});
 
   const handleCardClick = (index) => {
     setFlippedCards((prev) => ({
       ...prev,
-      [index]: !prev[index], // Toggle flip state for this card
+      [index]: !prev[index],
     }));
   };
 
   return (
     <section 
+      ref={sectionRef}
       id="gallery"
-      className="py-24 transition-colors duration-300 select-none"
+      className="py-12 sm:py-16 transition-colors duration-300 select-none"
       style={{ backgroundColor: "var(--color-background)" }}
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Section Header */}
         <h2 
-          className="text-center text-4xl sm:text-5xl font-bold tracking-tight mb-16"
+          className={`text-center text-3xl sm:text-5xl font-bold tracking-tight mb-8 sm:mb-12 transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
           style={{ color: "var(--color-heading)" }}
         >
           Our Creations Gallery
         </h2>
 
-        {/* 3D Flip Card Container Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Tap hint — only visible on touch/mobile */}
+        <p
+          className="text-center text-xs opacity-50 mb-6 sm:hidden"
+          style={{ color: "var(--color-subheading)" }}
+        >
+          Tap a card to reveal its story
+        </p>
+
+        {/* 3D Flip Card Grid — 1 col on mobile, 2 on sm, 3 on lg */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {galleryData.map((item, index) => (
             <div
               key={index}
-              className="h-80 w-full cursor-pointer group"
-              style={{ perspective: "1000px" }} // Activates 3D space depth
+              // h-64 on mobile gives a usable tap area without overflowing the viewport
+              className={`h-64 sm:h-80 w-full cursor-pointer group transition-all duration-700 ${isVisible ? "animate-scale-in" : "opacity-0"}`}
+              style={{ 
+                perspective: "1000px",
+                animationDelay: `${index * 100}ms`,
+              }}
               onClick={() => handleCardClick(index)}
             >
-              {/* Inner flippable element wrapper */}
+              {/* Inner flippable wrapper */}
               <div
-                className="relative w-full h-full transition-transform duration-700 ease-out preserve-3d shadow-md hover:shadow-xl rounded-2xl border"
+                className="relative w-full h-full transition-transform duration-700 ease-out shadow-md hover:shadow-xl rounded-2xl border"
                 style={{
                   transform: flippedCards[index] ? "rotateY(180deg)" : "rotateY(0deg)",
                   transformStyle: "preserve-3d",
                   borderColor: "rgba(201,168,76,0.15)",
                 }}
               >
-                
-                {/* FRONT SIDE (Image display) */}
-                <div 
-                  className="absolute inset-0 w-full h-full backface-hidden rounded-2xl overflow-hidden"
+                {/* FRONT — image */}
+                <div
+                  className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden"
                   style={{ backfaceVisibility: "hidden" }}
                 >
                   <img
@@ -90,52 +103,52 @@ export default function GallerySection() {
                     loading="lazy"
                     className="w-full h-full object-cover transform scale-100 group-hover:scale-103 transition-transform duration-500 ease-out"
                   />
-                  {/* Gentle hover interactive overlay */}
                   <div className="absolute inset-0 bg-black/10 opacity-100 group-hover:opacity-0 transition-opacity duration-300" />
                 </div>
 
-                {/* BACK SIDE (Text & details overlay) */}
+                {/* BACK — text */}
                 <div
-                  className="absolute inset-0 w-full h-full backface-hidden rounded-2xl p-6 flex flex-col justify-center items-center text-center overflow-hidden border"
+                  className="absolute inset-0 w-full h-full rounded-2xl p-4 sm:p-6 flex flex-col justify-center items-center text-center overflow-hidden border"
                   style={{
                     transform: "rotateY(180deg)",
                     backfaceVisibility: "hidden",
-                    backgroundColor: "rgba(251, 248, 235, 0.04)",
+                    backgroundColor: "rgba(26,58,42,0.97)",
                     borderColor: "rgba(201,168,76,0.3)",
                   }}
                 >
-                  {/* Soft Background Accent Decoration */}
-                  <span className="absolute -bottom-6 -right-6 text-9xl opacity-5 pointer-events-none" style={{ color: "var(--color-heading)" }}>
+                  <span
+                    className="absolute -bottom-6 -right-6 text-9xl opacity-5 pointer-events-none"
+                    style={{ color: "var(--color-heading)" }}
+                    aria-hidden="true"
+                  >
                     ✿
                   </span>
 
                   <h3 
-                    className="text-xl font-bold tracking-wide mb-3 transform translate-y-0 transition-transform duration-300 delay-100"
+                    className="text-base sm:text-xl font-bold tracking-wide mb-2 sm:mb-3"
                     style={{ color: "var(--color-heading)" }}
                   >
                     {item.title}
                   </h3>
                   
                   <p 
-                    className="text-sm leading-relaxed max-w-xs"
+                    className="text-xs sm:text-sm leading-relaxed max-w-xs"
                     style={{ color: "var(--color-subheading)" }}
                   >
                     {item.desc}
                   </p>
                   
                   <span 
-                    className="mt-6 text-xs uppercase tracking-widest font-semibold opacity-60 hover:opacity-100 transition-opacity"
+                    className="mt-4 sm:mt-6 text-[10px] sm:text-xs uppercase tracking-widest font-semibold opacity-60"
                     style={{ color: "var(--color-heading)" }}
                   >
-                    Click to reveal image
+                    Tap again to see image
                   </span>
                 </div>
-
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

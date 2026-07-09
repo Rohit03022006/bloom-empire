@@ -1,8 +1,15 @@
+import Navbar from "./components/layout/Header";
 import Welcome from "./pages/Welcome";
+import Footer from "./components/layout/Footer";
 const App = () => {
-  return <div>
+  return <>
+    <Navbar />
+
     <Welcome />
-  </div>;
+
+    <Footer />
+
+  </>;
 };
 
 export default App;
