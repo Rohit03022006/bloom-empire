@@ -5,6 +5,7 @@ import logo from "../../assets/logo.png";
 export default function ContactSection() {
   return (
     <section
+      id="contact"
       className="py-24"
       style={{
         backgroundColor: "var(--color-background)",

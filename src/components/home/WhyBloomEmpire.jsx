@@ -39,6 +39,7 @@ const features = [
 export default function WhyBloomEmpire() {
   return (
     <section 
+      id="about"
       className="py-24 transition-colors duration-300"
       style={{ backgroundColor: "var(--color-heading)" }} // OPPOSITE: Swapped to heading color
     >

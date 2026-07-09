@@ -13,6 +13,7 @@ export default function HeroSection() {
 
   return (
     <section
+      id="home"
       className="min-h-screen flex items-center pt-20 overflow-hidden transition-colors duration-300"
       style={{ backgroundColor: "var(--color-background)" }}
     >
@@ -93,7 +94,7 @@ export default function HeroSection() {
           />
 
           {/* Framed Image Element */}
-          <div className="relative max-w-[550px] w-full aspect-square rounded-3xl overflow-hidden border shadow-2xl group transition-all duration-500 hover:border-[rgba(201,168,76,0.4)]">
+          <div className="relative max-w-137.5 w-full aspect-square rounded-3xl overflow-hidden border shadow-2xl group transition-all duration-500 hover:border-[rgba(201,168,76,0.4)]">
             <img
               src={heroImg}
               alt="Premium Floral Arrangements"

@@ -8,7 +8,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", href: "#" },
+    { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Gallery", href: "#gallery" },
     { name: "Process", href: "#process" },
@@ -25,7 +25,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="inline-block hover:opacity-90 transition-opacity duration-300">
+        <a href="#home" className="inline-block hover:opacity-90 transition-opacity duration-300">
           <img
             src={logo}
             alt="Bloom Empire"
@@ -39,7 +39,7 @@ export default function Navbar() {
             <a
               key={item.name}
               href={item.href}
-              className="text-(--color-subheading) hover:text-(--color-heading) transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[var(--color-heading)] hover:after:w-full after:transition-all after:duration-300"
+              className="text-[var(--color-subheading)] hover:text-[var(--color-heading)] transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[var(--color-heading)] hover:after:w-full after:transition-all after:duration-300"
             >
               {item.name}
             </a>
@@ -47,15 +47,16 @@ export default function Navbar() {
         </nav>
 
         {/* CTA */}
-        <button
-          className="hidden lg:block px-6 py-3 rounded-full font-semibold hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm hover:shadow-md"
+        <a
+          href="#contact"
+          className="hidden lg:inline-flex px-6 py-3 rounded-full font-semibold hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm hover:shadow-md"
           style={{
             backgroundColor: "var(--color-button)",
             color: "var(--color-button-text)",
           }}
         >
           Contact
-        </button>
+        </a>
 
         {/* Mobile Menu Button with Animated Icon Swap */}
         <button
@@ -91,7 +92,7 @@ export default function Navbar() {
             <a
               key={item.name}
               href={item.href}
-              className={`text-(--color-subheading) hover:text-(--color-heading) transition-colors duration-200 transform ${
+              className={`text-[var(--color-subheading)] hover:text-[var(--color-heading)] transition-colors duration-200 transform ${
                 open ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"
               }`}
               style={{
@@ -103,7 +104,8 @@ export default function Navbar() {
             </a>
           ))}
 
-          <button
+          <a
+            href="#contact"
             className={`py-3 rounded-xl font-semibold transform transition-all duration-300 active:scale-98 ${
               open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
@@ -114,7 +116,7 @@ export default function Navbar() {
             }}
           >
             Contact
-          </button>
+          </a>
         </div>
       </div>
     </header>

@@ -46,6 +46,7 @@ export default function GallerySection() {
 
   return (
     <section 
+      id="gallery"
       className="py-24 transition-colors duration-300 select-none"
       style={{ backgroundColor: "var(--color-background)" }}
     >

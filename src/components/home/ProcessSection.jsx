@@ -28,6 +28,7 @@ const processSteps = [
 export default function ProcessSection() {
   return (
     <section 
+      id="process"
       className="py-24 transition-colors duration-300 overflow-hidden"
       style={{ backgroundColor: "var(--color-background)" }}
     >
@@ -46,7 +47,7 @@ export default function ProcessSection() {
           
           {/* Center Vertical Axis Line (Desktop Only) */}
           <div 
-            className="absolute left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 hidden md:block opacity-20 pointer-events-none"
+            className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 hidden md:block opacity-20 pointer-events-none"
             style={{ backgroundColor: "var(--color-heading)" }}
           />
 

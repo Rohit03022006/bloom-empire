@@ -37,10 +37,10 @@ export default function Footer() {
             {/* OPPOSITE: Text elements flipped to dark green */}
             <ul className="space-y-3 text-[#132b1f]/90">
               {[
-                { label: "Home", path: "/" },
-                { label: "About", path: "/about" },
-                { label: "Projects", path: "/projects" },
-                { label: "Contact", path: "/contact" },
+                { label: "Home", path: "#home" },
+                { label: "About", path: "#about" },
+                { label: "Gallery", path: "#gallery" },
+                { label: "Contact", path: "#contact" },
               ].map((link) => (
                 <li key={link.label}>
                   <a
