@@ -1,9 +1,76 @@
+import { useState } from "react";
 import { LuPhone, LuMail, LuMapPin } from "react-icons/lu";
 import logo from "../../assets/logo.png";
 import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 
 export default function ContactSection() {
-  const [sectionRef, isVisible] = useIntersectionObserver({ triggerOnce: true, threshold: 0.1 });
+  const [sectionRef, isVisible] = useIntersectionObserver({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    requirements: "",
+  });
+
+  const SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+
+    try {
+      const response = await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "cors",
+        redirect: "follow",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Consultation request submitted successfully!");
+
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          requirements: "",
+        });
+      } else {
+        alert("Submission failed. The server returned an unsuccessful response.");
+      }
+    } catch (error) {
+      console.error("Form Submission Error:", error);
+      alert(
+        "Something went wrong while sending your request. " +
+        "Please try again, or contact us directly if the issue persists."
+      );
+    }
+
+    setLoading(false);
+  };
 
   return (
     <section
@@ -14,7 +81,11 @@ export default function ContactSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className={`text-center mb-10 sm:mb-16 transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
+        <div
+          className={`text-center mb-10 sm:mb-16 transition-all duration-700 ${
+            isVisible ? "animate-fade-in-up" : "opacity-0"
+          }`}
+        >
           <img
             src={logo}
             alt="Bloom Empire"
@@ -33,20 +104,20 @@ export default function ContactSection() {
             className="mt-2 max-w-2xl mx-auto text-sm sm:text-base px-2"
             style={{ color: "var(--color-subheading)" }}
           >
-            We'd love to help you transform your home into a beautiful floral experience.
+            We'd love to help you transform your home into a beautiful floral
+            experience.
           </p>
         </div>
 
-        {/* Main Layout — single column on mobile, two columns on lg+ */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
-
-          {/* LEFT — Contact Information */}
+          {/* Contact Info */}
           <div
-            className={`rounded-2xl sm:rounded-3xl p-5 sm:p-10 transition-all duration-700 ${isVisible ? "animate-fade-in-left" : "opacity-0"}`}
+            className={`rounded-2xl sm:rounded-3xl p-5 sm:p-10 transition-all duration-700 ${
+              isVisible ? "animate-fade-in-left" : "opacity-0"
+            }`}
             style={{
               border: "1px solid rgba(201,168,76,.2)",
               background: "rgba(255,255,255,.02)",
-              animationDelay: "150ms",
             }}
           >
             <h3
@@ -56,56 +127,83 @@ export default function ContactSection() {
               Contact Information
             </h3>
 
-            <div className="space-y-6 sm:space-y-8">
-              {/* Phone */}
+            <div className="space-y-8">
               <div className="flex items-start gap-4">
                 <div
-                  className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 rounded-full flex items-center justify-center"
-                  style={{ background: "rgba(201,168,76,.1)" }}
+                  className="w-12 h-12 rounded-full flex items-center justify-center"
+                  style={{
+                    background: "rgba(201,168,76,.1)",
+                  }}
                 >
-                  <LuPhone size={18} style={{ color: "var(--color-heading)" }} />
+                  <LuPhone
+                    size={20}
+                    style={{ color: "var(--color-heading)" }}
+                  />
                 </div>
+
                 <div>
-                  <h4 className="font-semibold text-sm sm:text-base" style={{ color: "var(--color-heading)" }}>
+                  <h4
+                    className="font-semibold"
+                    style={{ color: "var(--color-heading)" }}
+                  >
                     Phone
                   </h4>
-                  <p className="text-sm sm:text-base" style={{ color: "var(--color-subheading)" }}>
+
+                  <p style={{ color: "var(--color-subheading)" }}>
                     +91 9876543210
                   </p>
                 </div>
               </div>
 
-              {/* Email */}
               <div className="flex items-start gap-4">
                 <div
-                  className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 rounded-full flex items-center justify-center"
-                  style={{ background: "rgba(201,168,76,.1)" }}
+                  className="w-12 h-12 rounded-full flex items-center justify-center"
+                  style={{
+                    background: "rgba(201,168,76,.1)",
+                  }}
                 >
-                  <LuMail size={18} style={{ color: "var(--color-heading)" }} />
+                  <LuMail
+                    size={20}
+                    style={{ color: "var(--color-heading)" }}
+                  />
                 </div>
+
                 <div>
-                  <h4 className="font-semibold text-sm sm:text-base" style={{ color: "var(--color-heading)" }}>
+                  <h4
+                    className="font-semibold"
+                    style={{ color: "var(--color-heading)" }}
+                  >
                     Email
                   </h4>
-                  <p className="text-sm sm:text-base break-all" style={{ color: "var(--color-subheading)" }}>
+
+                  <p style={{ color: "var(--color-subheading)" }}>
                     hello@bloomempire.com
                   </p>
                 </div>
               </div>
 
-              {/* Address */}
               <div className="flex items-start gap-4">
                 <div
-                  className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 rounded-full flex items-center justify-center"
-                  style={{ background: "rgba(201,168,76,.1)" }}
+                  className="w-12 h-12 rounded-full flex items-center justify-center"
+                  style={{
+                    background: "rgba(201,168,76,.1)",
+                  }}
                 >
-                  <LuMapPin size={18} style={{ color: "var(--color-heading)" }} />
+                  <LuMapPin
+                    size={20}
+                    style={{ color: "var(--color-heading)" }}
+                  />
                 </div>
+
                 <div>
-                  <h4 className="font-semibold text-sm sm:text-base" style={{ color: "var(--color-heading)" }}>
+                  <h4
+                    className="font-semibold"
+                    style={{ color: "var(--color-heading)" }}
+                  >
                     Address
                   </h4>
-                  <p className="text-sm sm:text-base" style={{ color: "var(--color-subheading)" }}>
+
+                  <p style={{ color: "var(--color-subheading)" }}>
                     Jaipur, Rajasthan, India
                   </p>
                 </div>
@@ -113,13 +211,15 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* RIGHT — Request Form */}
+          {/* Form */}
           <form
-            className={`rounded-2xl sm:rounded-3xl p-5 sm:p-10 transition-all duration-700 ${isVisible ? "animate-fade-in-right" : "opacity-0"}`}
+            onSubmit={handleSubmit}
+            className={`rounded-2xl sm:rounded-3xl p-5 sm:p-10 transition-all duration-700 ${
+              isVisible ? "animate-fade-in-right" : "opacity-0"
+            }`}
             style={{
               border: "1px solid rgba(201,168,76,.2)",
               background: "rgba(255,255,255,.02)",
-              animationDelay: "300ms",
             }}
           >
             <h3
@@ -129,12 +229,15 @@ export default function ContactSection() {
               Request Consultation
             </h3>
 
-            <div className="space-y-4 sm:space-y-5">
+            <div className="space-y-5">
               <input
                 type="text"
+                name="name"
                 placeholder="Your Name"
-                aria-label="Your Name"
-                className="w-full p-3.5 sm:p-4 rounded-xl outline-none text-sm sm:text-base"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full p-4 rounded-xl outline-none"
                 style={{
                   background: "rgba(255,255,255,.04)",
                   color: "var(--color-subheading)",
@@ -144,9 +247,12 @@ export default function ContactSection() {
 
               <input
                 type="email"
+                name="email"
                 placeholder="Email Address"
-                aria-label="Email Address"
-                className="w-full p-3.5 sm:p-4 rounded-xl outline-none text-sm sm:text-base"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full p-4 rounded-xl outline-none"
                 style={{
                   background: "rgba(255,255,255,.04)",
                   color: "var(--color-subheading)",
@@ -156,9 +262,12 @@ export default function ContactSection() {
 
               <input
                 type="tel"
+                name="phone"
                 placeholder="Phone Number"
-                aria-label="Phone Number"
-                className="w-full p-3.5 sm:p-4 rounded-xl outline-none text-sm sm:text-base"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="w-full p-4 rounded-xl outline-none"
                 style={{
                   background: "rgba(255,255,255,.04)",
                   color: "var(--color-subheading)",
@@ -167,10 +276,13 @@ export default function ContactSection() {
               />
 
               <textarea
-                rows="3"
+                rows="4"
+                name="requirements"
                 placeholder="Tell us about your requirements..."
-                aria-label="Requirements Details"
-                className="w-full p-3.5 sm:p-4 rounded-xl outline-none resize-none text-sm sm:text-base"
+                value={formData.requirements}
+                onChange={handleChange}
+                required
+                className="w-full p-4 rounded-xl outline-none resize-none"
                 style={{
                   background: "rgba(255,255,255,.04)",
                   color: "var(--color-subheading)",
@@ -180,13 +292,16 @@ export default function ContactSection() {
 
               <button
                 type="submit"
-                className="w-full py-3.5 sm:py-4 rounded-xl font-semibold text-sm sm:text-base transition duration-300 hover:opacity-90 active:scale-95"
+                disabled={loading}
+                className="w-full py-4 rounded-xl font-semibold transition-all duration-300 hover:opacity-90"
                 style={{
                   background: "var(--color-button)",
                   color: "var(--color-button-text)",
                 }}
               >
-                Schedule Consultation
+                {loading
+                  ? "Submitting..."
+                  : "Schedule Consultation"}
               </button>
             </div>
           </form>
