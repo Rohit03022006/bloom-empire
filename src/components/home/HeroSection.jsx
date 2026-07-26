@@ -1,6 +1,9 @@
 import { FaArrowRight } from "react-icons/fa";
 import { FiHome, FiSmile } from "react-icons/fi";
-import heroImg from "../../assets/hero.jpg";
+import heroImg from "../../assets/hero.webp";
+import heroImg400 from "../../assets/hero-400.webp";
+import heroImg800 from "../../assets/hero-800.webp";
+import heroImg1200 from "../../assets/hero-1200.webp";
 import { LuSparkles } from "react-icons/lu";
 
 export default function HeroSection() {
@@ -13,7 +16,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center pt-20 overflow-hidden transition-colors duration-300"
+      className="min-h-screen flex items-center pt-24 sm:pt-28 overflow-hidden transition-colors duration-300"
       style={{ backgroundColor: "var(--color-background)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center py-10 sm:py-12">
@@ -79,12 +82,18 @@ export default function HeroSection() {
           />
 
           {/* Hero image — uses aspect-square so height is always proportional */}
-          <div className="relative w-full max-w-[420px] sm:max-w-[500px] lg:max-w-[550px] aspect-square rounded-3xl overflow-hidden border shadow-2xl group transition-all duration-500 hover:border-[rgba(201,168,76,0.4)]">
+          <div className="relative w-full max-w-[420px] sm:max-w-[500px] lg:max-w-[500px] aspect-square rounded-3xl overflow-hidden border shadow-2xl group transition-all duration-500 hover:border-[rgba(201,168,76,0.4)]">
             <img
               src={heroImg}
+              srcSet={`${heroImg400} 400w, ${heroImg800} 800w, ${heroImg1200} 1200w`}
+              sizes="(max-width: 640px) 400px, (max-width: 1024px) 800px, 500px"
               alt="Premium Floral Arrangements"
+              width="500"
+              height="500"
               className="w-full h-full object-cover transform scale-100 group-hover:scale-103 transition-transform duration-700 ease-out"
+              fetchPriority="high"
               loading="eager"
+              decoding="async"
             />
           </div>
         </div>

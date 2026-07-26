@@ -1,23 +1,25 @@
+import { lazy, Suspense } from "react";
 import HeroSection from "@/components/home/HeroSection";
-import WhyBloomEmpire from "@/components/home/WhyBloomEmpire";
-import GallerySection from "@/components/home/GallerySection";
-import PremiumSection from "@/components/home/PremiumSection";
-import ProcessSection from "@/components/home/ProcessSection";
-import ContactSection from "@/components/home/ContactSection";
-import ExclusiveDesigns from "../components/home/ExclusiveDesigns";
+
+const WhyBloomEmpire = lazy(() => import("@/components/home/WhyBloomEmpire"));
+const GallerySection = lazy(() => import("@/components/home/GallerySection"));
+const ExclusiveDesigns = lazy(() => import("@/components/home/ExclusiveDesigns"));
+const PremiumSection = lazy(() => import("@/components/home/PremiumSection"));
+const ProcessSection = lazy(() => import("@/components/home/ProcessSection"));
+const ContactSection = lazy(() => import("@/components/home/ContactSection"));
 
 export default function Welcome() {
   return (
-    <>
-
+    <main>
       <HeroSection />
-      <WhyBloomEmpire />
-      <GallerySection />
-      <ExclusiveDesigns />
-      <PremiumSection />
-      <ProcessSection />
-      <ContactSection />
-   
-    </>
+      <Suspense fallback={null}>
+        <WhyBloomEmpire />
+        <GallerySection />
+        <ExclusiveDesigns />
+        <PremiumSection />
+        <ProcessSection />
+        <ContactSection />
+      </Suspense>
+    </main>
   );
 }

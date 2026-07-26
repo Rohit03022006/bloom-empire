@@ -44,7 +44,7 @@ export default function ExclusiveDesigns() {
             Exclusive Designs
           </h2>
           <p
-            className="mt-3 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg opacity-90 px-2"
+            className="mt-3 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg px-2"
             style={{ color: "var(--color-background)" }}
           >
             Beautiful floral concepts curated for modern luxury homes.
@@ -92,7 +92,7 @@ export default function ExclusiveDesigns() {
                   </h3>
 
                   <p
-                    className="leading-relaxed text-sm opacity-80 pb-6 sm:pb-8"
+                    className="leading-relaxed text-sm pb-6 sm:pb-8"
                     style={{ color: "var(--color-background)" }}
                   >
                     {item.desc}

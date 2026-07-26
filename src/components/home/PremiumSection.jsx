@@ -1,11 +1,11 @@
 import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 
 const productsRow1 = [
-  { image: "/collection/flower1.jpg", name: "White Chrysanthemum" },
-  { image: "/collection/flower2.jpg", name: "Dutch White Roses" },
-  { image: "/collection/flower3.jpg", name: "Peach Roses" },
-  { image: "/collection/flower4.jpg", name: "Blue Daisies" },
-  { image: "/collection/flower5.jpg", name: "Purple Asters" },
+  { image: "/collection/flower1.webp", name: "White Chrysanthemum" },
+  { image: "/collection/flower2.webp", name: "Dutch White Roses" },
+  { image: "/collection/flower3.webp", name: "Peach Roses" },
+  { image: "/collection/flower4.webp", name: "Blue Daisies" },
+  { image: "/collection/flower5.webp", name: "Purple Asters" },
 ];
 
 export default function PremiumCollection() {
@@ -26,6 +26,8 @@ export default function PremiumCollection() {
           <img
             src={item.image}
             alt={item.name}
+            width="300"
+            height="256"
             className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             draggable="false"
             loading="lazy"

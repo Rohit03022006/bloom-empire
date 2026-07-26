@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.webp";
 
 // 1. Core Icons Imported here
 import { HiMenuAlt3, HiX } from "react-icons/hi";
@@ -22,13 +22,15 @@ export default function Navbar() {
         borderColor: "rgba(201,168,76,0.2)",
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 sm:h-24 flex items-center justify-between">
         {/* Logo */}
         <a href="#home" className="inline-block hover:opacity-90 transition-opacity duration-300">
           <img
             src={logo}
             alt="Bloom Empire"
-            className="h-12 sm:h-14 rounded-3xl w-auto object-contain"
+            width="180"
+            height="80"
+            className="h-14 sm:h-18 lg:h-20 rounded-3xl w-auto object-contain transition-all duration-300"
           />
         </a>
 

@@ -3,32 +3,32 @@ import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 
 const galleryData = [
   {
-    img: "/gallery/1.jpg",
+    img: "/gallery/1.webp",
     title: "Enchanted Orchids",
     desc: "Vibrant arrangement crafted specifically to transform dull hallway spaces.",
   },
   {
-    img: "/gallery/2.jpg",
+    img: "/gallery/2.webp",
     title: "Minimalist Tulip Basin",
     desc: "Clean geometric styles aligned perfect for modern living room centerpieces.",
   },
   {
-    img: "/gallery/3.jpg",
+    img: "/gallery/3.webp",
     title: "Royal Bouquet Suite",
     desc: "A rich collection of deep hues designed to capture your guests' admiration.",
   },
   {
-    img: "/gallery/4.jpg",
+    img: "/gallery/4.webp",
     title: "Verdant Balcony Accents",
     desc: "Bespoke greenery ensuring your empty outdoor flower pots never stay bare.",
   },
   {
-    img: "/gallery/5.jpg",
+    img: "/gallery/5.webp",
     title: "Imperial Dining Setup",
     desc: "Elegantly scaled low-profile arrangements to optimize dinner styling.",
   },
   {
-    img: "/gallery/6.jpg",
+    img: "/gallery/6.webp",
     title: "Blossom Corner Magic",
     desc: "Professional boutique styling created exclusively for cozy reading corners.",
   },
@@ -100,6 +100,8 @@ export default function GallerySection() {
                   <img
                     src={item.img}
                     alt={item.title}
+                    width="400"
+                    height="320"
                     loading="lazy"
                     className="w-full h-full object-cover transform scale-100 group-hover:scale-103 transition-transform duration-500 ease-out"
                   />
@@ -112,7 +114,7 @@ export default function GallerySection() {
                   style={{
                     transform: "rotateY(180deg)",
                     backfaceVisibility: "hidden",
-                    backgroundColor: "rgba(26,58,42,0.97)",
+                    backgroundColor: "var(--color-background)",
                     borderColor: "rgba(201,168,76,0.3)",
                   }}
                 >

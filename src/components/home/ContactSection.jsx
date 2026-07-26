@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { LuPhone, LuMail, LuMapPin } from "react-icons/lu";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.webp";
 import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 
 export default function ContactSection() {
@@ -92,7 +92,9 @@ export default function ContactSection() {
           <img
             src={logo}
             alt="Bloom Empire"
-            className="h-24 sm:h-36 mx-auto"
+            width="144"
+            height="144"
+            className="h-24 sm:h-36 w-auto object-contain mx-auto"
             loading="lazy"
           />
 
@@ -227,21 +229,48 @@ export default function ContactSection() {
             {isSubmitted ? (
               <div className="flex flex-col items-center justify-center text-center py-8 px-2 animate-scale-in">
                 {/* SVG Animated Success Checkmark */}
-                <div className="w-20 h-20 rounded-full flex items-center justify-center mb-6 animate-circle-scale" style={{ background: "rgba(201,168,76,.12)", border: "1px solid rgba(201,168,76,.25)" }}>
-                  <svg className="w-10 h-10 text-[var(--color-heading)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path className="animate-checkmark-draw" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
+                <div
+                  className="w-20 h-20 rounded-full flex items-center justify-center mb-6 animate-circle-scale"
+                  style={{
+                    background: "rgba(201,168,76,.12)",
+                    border: "1px solid rgba(201,168,76,.25)",
+                  }}
+                >
+                  <svg
+                    className="w-10 h-10 text-[var(--color-heading)]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      className="animate-checkmark-draw"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="3"
+                      d="M5 13l4 4L19 7"
+                    ></path>
                   </svg>
                 </div>
-                
-                <h3 className="text-2xl sm:text-3xl font-bold mb-4" style={{ color: "var(--color-heading)" }}>
+
+                <h3
+                  className="text-2xl sm:text-3xl font-bold mb-4"
+                  style={{ color: "var(--color-heading)" }}
+                >
                   Request Received!
                 </h3>
-                
-                <p className="max-w-md mb-8 text-sm sm:text-base" style={{ color: "var(--color-subheading)" }}>
-                  Thank you, <span className="font-semibold text-[var(--color-heading)]">{submittedName}</span>! 
-                  We have received your consultation request. Our floral design team will get in touch with you shortly.
+
+                <p
+                  className="max-w-md mb-8 text-sm sm:text-base"
+                  style={{ color: "var(--color-subheading)" }}
+                >
+                  Thank you,{" "}
+                  <span className="font-semibold text-[var(--color-heading)]">
+                    {submittedName}
+                  </span>
+                  ! We have received your consultation request. Our floral design team will get in touch with you shortly.
                 </p>
-                
+
                 <button
                   onClick={() => setIsSubmitted(false)}
                   className="px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:opacity-90 cursor-pointer"
@@ -335,9 +364,25 @@ export default function ContactSection() {
                 >
                   {loading ? (
                     <span className="flex items-center justify-center gap-2">
-                      <svg className="animate-spin h-5 w-5 text-[var(--color-button-text)]" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      <svg
+                        className="animate-spin h-5 w-5 text-[var(--color-button-text)]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
                       </svg>
                       Submitting...
                     </span>
