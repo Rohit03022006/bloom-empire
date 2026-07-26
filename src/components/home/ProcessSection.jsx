@@ -33,27 +33,27 @@ export default function ProcessSection() {
     <section
       ref={sectionRef}
       id="process"
-      className="py-16 sm:py-24 transition-colors duration-300 overflow-hidden"
+      className="py-8 sm:py-24 transition-colors duration-300 overflow-hidden"
       style={{ backgroundColor: "var(--color-background)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Section Header */}
         <h2
-          className={`text-center text-3xl sm:text-5xl font-bold tracking-tight mb-10 sm:mb-24 transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
+          className={`text-center text-3xl sm:text-5xl font-bold tracking-tight mb-6 sm:mb-24 transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
           style={{ color: "var(--color-heading)" }}
         >
           Our Styling Journey
         </h2>
 
         {/* ── MOBILE LAYOUT: simple vertical card stack ── */}
-        <div className="flex flex-col gap-6 md:hidden">
+        <div className="flex flex-col gap-4 md:hidden">
           {processSteps.map((item, index) => {
             const Icon = item.icon;
             return (
               <div
                 key={index}
-                className={`flex items-start gap-4 p-5 rounded-2xl border border-transparent transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
+                className={`flex items-start gap-4 p-4 rounded-2xl border border-transparent transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
                 style={{
                   background: "rgba(201,168,76,0.03)",
                   borderColor: "rgba(201,168,76,0.12)",

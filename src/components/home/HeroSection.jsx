@@ -16,10 +16,10 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center pt-24 sm:pt-28 overflow-hidden transition-colors duration-300"
+      className="min-h-screen flex items-center pt-20 sm:pt-28 overflow-hidden transition-colors duration-300"
       style={{ backgroundColor: "var(--color-background)" }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center py-10 sm:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center py-4 sm:py-12">
 
         {/* Content Side */}
         <div className="space-y-5 sm:space-y-6 text-left animate-fade-in-left">

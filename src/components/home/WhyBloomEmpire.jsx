@@ -44,13 +44,13 @@ export default function WhyBloomEmpire() {
     <section 
       ref={sectionRef}
       id="about"
-      className="py-16 sm:py-20 transition-colors duration-300"
+      className="py-8 sm:py-20 transition-colors duration-300"
       style={{ backgroundColor: "var(--color-heading)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Section Header */}
-        <div className={`text-center max-w-2xl mx-auto space-y-3 sm:space-y-4 mb-10 transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
+        <div className={`text-center max-w-2xl mx-auto space-y-3 sm:space-y-4 mb-6 sm:mb-10 transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
           <h2 
             className="text-3xl sm:text-5xl font-bold tracking-tight"
             style={{ color: "var(--color-background)" }}
@@ -73,7 +73,7 @@ export default function WhyBloomEmpire() {
             return (
               <div
                 key={index}
-                className={`group relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl border transition-all duration-500 overflow-hidden flex flex-col items-start text-left hover:-translate-y-1.5 hover:shadow-xl ${isVisible ? "animate-scale-in" : "opacity-0"}`}
+                className={`group relative p-4 sm:p-8 rounded-2xl sm:rounded-3xl border transition-all duration-500 overflow-hidden flex flex-col items-start text-left hover:-translate-y-1.5 hover:shadow-xl ${isVisible ? "animate-scale-in" : "opacity-0"}`}
                 style={{
                   backgroundColor: "rgba(255, 255, 255, 0.6)",
                   borderColor: "rgba(201,168,76,0.2)",
@@ -90,7 +90,7 @@ export default function WhyBloomEmpire() {
               >
                 {/* Watermark */}
                 <span 
-                  className="absolute -bottom-6 -right-8 text-8xl sm:text-[12rem] select-none transition-all duration-700 ease-out transform pointer-events-none opacity-5 group-hover:opacity-20 group-hover:scale-110 group-hover:-rotate-12" 
+                  className="absolute -bottom-14 -right-14 text-8xl sm:text-[14rem] select-none transition-all duration-700 ease-out transform pointer-events-none opacity-5 group-hover:opacity-20 group-hover:scale-110 group-hover:-rotate-12" 
                   style={{ color: "var(--color-background)" }}
                   aria-hidden="true"
                 >

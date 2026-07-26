@@ -85,7 +85,7 @@ export default function ContactSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div
-          className={`text-center mb-10 sm:mb-16 transition-all duration-700 ${
+          className={`text-center mb-6 sm:mb-16 transition-all duration-700 ${
             isVisible ? "animate-fade-in-up" : "opacity-0"
           }`}
         >
@@ -117,7 +117,7 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
           {/* Contact Info */}
           <div
-            className={`rounded-2xl sm:rounded-3xl p-5 sm:p-10 transition-all duration-700 ${
+            className={`relative rounded-2xl sm:rounded-3xl p-4 sm:p-10 overflow-hidden transition-all duration-700 ${
               isVisible ? "animate-fade-in-left" : "opacity-0"
             }`}
             style={{
@@ -209,16 +209,70 @@ export default function ContactSection() {
                   </h4>
 
                   <p style={{ color: "var(--color-subheading)" }}>
-                    Jaipur, Rajasthan, India
+                    Dilshad Garden, New Delhi, India  
                   </p>
                 </div>
               </div>
+            </div>
+
+            {/* Animated Flower SVG — Desktop only, absolutely positioned */}
+            <div
+              className="hidden lg:block absolute -bottom-16 -right-16 select-none pointer-events-none"
+              aria-hidden="true"
+            >
+              <svg
+                viewBox="0 0 200 200"
+                width="280"
+                height="280"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {/* Outer petals */}
+                <g style={{ transformOrigin: "100px 100px", animation: "flowerOuterSpin 18s linear infinite" }}>
+                  {[0, 45, 90, 135, 180, 225, 270, 315].map((deg, i) => (
+                    <ellipse
+                      key={i}
+                      cx="100"
+                      cy="58"
+                      rx="11"
+                      ry="22"
+                      fill="rgba(201,168,76,0.2)"
+                      style={{
+                        transformOrigin: "100px 100px",
+                        transform: `rotate(${deg}deg)`,
+                        animation: `petalPulse 4s ease-in-out ${i * 0.4}s infinite`,
+                      }}
+                    />
+                  ))}
+                </g>
+                {/* Inner petals */}
+                <g style={{ transformOrigin: "100px 100px", animation: "flowerInnerSpin 12s linear infinite reverse" }}>
+                  {[22.5, 67.5, 112.5, 157.5, 202.5, 247.5, 292.5, 337.5].map((deg, i) => (
+                    <ellipse
+                      key={i}
+                      cx="100"
+                      cy="68"
+                      rx="7"
+                      ry="16"
+                      fill="rgba(231,195,95,0.28)"
+                      style={{
+                        transformOrigin: "100px 100px",
+                        transform: `rotate(${deg}deg)`,
+                        animation: `petalPulse 3s ease-in-out ${i * 0.3}s infinite`,
+                      }}
+                    />
+                  ))}
+                </g>
+                {/* Center */}
+                <circle cx="100" cy="100" r="18" fill="rgba(201,168,76,0.5)" style={{ animation: "corePulse 3s ease-in-out infinite" }} />
+                <circle cx="100" cy="100" r="10" fill="rgba(231,195,95,0.9)" />
+                <circle cx="100" cy="100" r="5" fill="#2d6449" />
+              </svg>
             </div>
           </div>
 
           {/* Form Container */}
           <div
-            className={`rounded-2xl sm:rounded-3xl p-5 sm:p-10 transition-all duration-700 ${
+            className={`rounded-2xl sm:rounded-3xl p-4 sm:p-10 transition-all duration-700 ${
               isVisible ? "animate-fade-in-right" : "opacity-0"
             }`}
             style={{

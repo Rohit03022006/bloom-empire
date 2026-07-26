@@ -94,7 +94,7 @@ export default function GallerySection() {
     <section 
       ref={sectionRef}
       id="gallery"
-      className="py-12 sm:py-16 transition-colors duration-300 select-none"
+      className="py-8 sm:py-16 transition-colors duration-300 select-none"
       style={{ backgroundColor: "var(--color-background)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">

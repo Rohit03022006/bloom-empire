@@ -30,13 +30,13 @@ export default function ExclusiveDesigns() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 sm:py-24 transition-colors duration-300"
+      className="py-8 sm:py-24 transition-colors duration-300"
       style={{ backgroundColor: "var(--color-heading)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
-        <div className={`text-center mb-10 sm:mb-16 transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
+        <div className={`text-center mb-6 sm:mb-16 transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
           <h2
             className="text-3xl sm:text-5xl font-bold tracking-tight"
             style={{ color: "var(--color-background)" }}
@@ -59,7 +59,7 @@ export default function ExclusiveDesigns() {
             return (
               <div
                 key={idx}
-                className={`group relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl border transition-all duration-500 overflow-hidden flex flex-col justify-between hover:-translate-y-2 hover:shadow-xl ${isVisible ? "animate-scale-in" : "opacity-0"}`}
+                className={`group relative p-4 sm:p-8 rounded-2xl sm:rounded-3xl border transition-all duration-500 overflow-hidden flex flex-col justify-between hover:-translate-y-2 hover:shadow-xl ${isVisible ? "animate-scale-in" : "opacity-0"}`}
                 style={{
                   backgroundColor: "rgba(255, 255, 255, 0.6)",
                   borderColor: "rgba(201,168,76,0.2)",
@@ -101,7 +101,7 @@ export default function ExclusiveDesigns() {
 
                 {/* Watermark */}
                 <span
-                  className="absolute -bottom-10 -right-15 text-[8rem] sm:text-[14rem] select-none transition-all duration-700 ease-out transform pointer-events-none opacity-5 group-hover:opacity-20 group-hover:scale-110 group-hover:-rotate-12"
+                  className="absolute -bottom-30 -right-15 text-[8rem] sm:text-[14rem] select-none transition-all duration-700 ease-out transform pointer-events-none opacity-5 group-hover:opacity-20 group-hover:scale-110 group-hover:-rotate-12"
                   style={{ color: "var(--color-background)" }}
                   aria-hidden="true"
                 >

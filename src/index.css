@@ -59,6 +59,32 @@
         overflow-x: hidden;
     }
 
+    /* Custom Luxury Gold & Emerald Scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #1c4230;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #C9A84C;
+        border-radius: 5px;
+        border: 2px solid #1c4230;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #e7c35f;
+    }
+
+    /* Firefox scrollbar styling */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: #C9A84C #1c4230;
+    }
+
     /* apply base background and default text color and fonts */
     body {
         font-family: var(--font-sans);
@@ -205,6 +231,27 @@
 
 .animate-pulse-glow {
   animation: pulseGlow 1.5s infinite ease-in-out;
+}
+
+/* Animated SVG Flower — Contact Section */
+@keyframes flowerOuterSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes flowerInnerSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes petalPulse {
+  0%, 100% { opacity: 0.4; transform-origin: 100px 100px; }
+  50%       { opacity: 0.9; }
+}
+
+@keyframes corePulse {
+  0%, 100% { r: 18; opacity: 0.5; }
+  50%       { r: 22; opacity: 0.9; }
 }
 
 /* Accessibility: Respect user choices for reduced motion */

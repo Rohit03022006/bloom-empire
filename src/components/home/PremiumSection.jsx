@@ -68,12 +68,12 @@ export default function PremiumCollection() {
   );
 
   return (
-    <section ref={sectionRef} className="py-16 sm:py-24 overflow-hidden" style={{ backgroundColor: "var(--color-background)" }}>
-      <div className={`max-w-7xl mx-auto px-4 sm:px-6 mb-10 sm:mb-14 text-center transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
+    <section ref={sectionRef} className="py-8 sm:py-24 overflow-hidden" style={{ backgroundColor: "var(--color-background)" }}>
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 mb-6 sm:mb-14 text-center transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
         <h2 className="text-3xl sm:text-5xl font-bold tracking-tight" style={{ color: "var(--color-heading)" }}>
           Our Premium Collection
         </h2>
-        <div className="w-24 h-0.5 mx-auto mt-5 opacity-40" style={{ backgroundColor: "var(--color-heading)" }} />
+        <div className="w-24 h-0.5 mx-auto mt-4 sm:mt-5 opacity-40" style={{ backgroundColor: "var(--color-heading)" }} />
       </div>
 
       {/* SINGLE ROW MARQUEE */}
@@ -88,7 +88,7 @@ export default function PremiumCollection() {
       </div>
 
       {/* Footer Branding Text */}
-      <p className="text-center mt-16 italic tracking-wide text-sm opacity-80" style={{ color: "var(--color-subheading)" }}>
+      <p className="text-center mt-8 sm:mt-16 italic tracking-wide text-sm opacity-80" style={{ color: "var(--color-subheading)" }}>
         Each arrangement crafted with love & aesthetics ✿
       </p>
     </section>
