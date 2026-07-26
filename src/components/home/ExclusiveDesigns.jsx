@@ -101,7 +101,7 @@ export default function ExclusiveDesigns() {
 
                 {/* Watermark */}
                 <span
-                  className="absolute -bottom-20 -right-15 text-[8rem] sm:text-[14rem] select-none transition-all duration-700 ease-out transform pointer-events-none opacity-5 group-hover:opacity-20 group-hover:scale-110 group-hover:-rotate-12"
+                  className="absolute -bottom-10 -right-15 text-[8rem] sm:text-[14rem] select-none transition-all duration-700 ease-out transform pointer-events-none opacity-5 group-hover:opacity-20 group-hover:scale-110 group-hover:-rotate-12"
                   style={{ color: "var(--color-background)" }}
                   aria-hidden="true"
                 >

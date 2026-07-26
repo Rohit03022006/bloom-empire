@@ -97,9 +97,8 @@ export default function ProcessSection() {
               return (
                 <div
                   key={index}
-                  className={`flex flex-row items-center w-full group relative min-h-[200px] transition-all duration-700 ${
-                    isVisible ? (isLeft ? "animate-fade-in-left" : "animate-fade-in-right") : "opacity-0"
-                  }`}
+                  className={`flex flex-row items-center w-full group relative min-h-[200px] transition-all duration-700 ${isVisible ? (isLeft ? "animate-fade-in-left" : "animate-fade-in-right") : "opacity-0"
+                    }`}
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   {/* LEFT CONTENT — shown when isLeft, spacer when !isLeft */}

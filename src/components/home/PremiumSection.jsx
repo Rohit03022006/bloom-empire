@@ -1,11 +1,34 @@
 import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 
-const productsRow1 = [
-  { image: "/collection/flower1.webp", name: "White Chrysanthemum" },
-  { image: "/collection/flower2.webp", name: "Dutch White Roses" },
-  { image: "/collection/flower3.webp", name: "Peach Roses" },
-  { image: "/collection/flower4.webp", name: "Blue Daisies" },
-  { image: "/collection/flower5.webp", name: "Purple Asters" },
+// Import flower images from assets
+import whiteSantiniChrysanthemums from "../../assets/Flower_JPGs_Separate/White_Santini_Chrysanthemums.webp";
+import dutchWhiteRoses from "../../assets/Flower_JPGs_Separate/Dutch_White_Roses.webp";
+import peachRoses from "../../assets/Flower_JPGs_Separate/Peach_Roses.webp";
+import stargazerLily from "../../assets/Flower_JPGs_Separate/Stargazer_Lily.webp";
+import royalPurpleLisianthus from "../../assets/Flower_JPGs_Separate/Royal_Purple_Lisianthus.webp";
+import birdOfParadise from "../../assets/Flower_JPGs_Separate/Bird_of_Paradise.webp";
+import purpleWaterLily from "../../assets/Flower_JPGs_Separate/Purple_Tropical_Water_Lily.webp";
+import yellowGerberaDaisies from "../../assets/Flower_JPGs_Separate/Yellow_Gerbera_Daisies.webp";
+import asiaticLilies from "../../assets/Flower_JPGs_Separate/Asiatic_Lilies.webp";
+import cremonMum from "../../assets/Flower_JPGs_Separate/Cremon_Mum.webp";
+import curcumaFlower from "../../assets/Flower_JPGs_Separate/Curcuma_Flower.webp";
+import blueDaisies from "../../assets/Flower_JPGs_Separate/Blue_Daisies.webp";
+import redCockscomb from "../../assets/Flower_JPGs_Separate/Red_Cockscomb.webp";
+
+const products = [
+  { image: dutchWhiteRoses, name: "Dutch White Roses" },
+  { image: stargazerLily, name: "Stargazer Lily" },
+  { image: royalPurpleLisianthus, name: "Royal Purple Lisianthus" },
+  { image: birdOfParadise, name: "Bird of Paradise" },
+  { image: whiteSantiniChrysanthemums, name: "White Santini Chrysanthemums" },
+  { image: peachRoses, name: "Peach Roses" },
+  { image: purpleWaterLily, name: "Purple Tropical Water Lily" },
+  { image: asiaticLilies, name: "Asiatic Lilies" },
+  { image: yellowGerberaDaisies, name: "Yellow Gerbera Daisies" },
+  { image: blueDaisies, name: "Blue Daisies" },
+  { image: cremonMum, name: "Cremon Mum" },
+  { image: curcumaFlower, name: "Curcuma Flower" },
+  { image: redCockscomb, name: "Red Cockscomb" },
 ];
 
 export default function PremiumCollection() {
@@ -36,7 +59,7 @@ export default function PremiumCollection() {
 
         {/* Text Area Details */}
         <div className="text-center p-4">
-          <h3 className="font-semibold tracking-wide truncate" style={{ color: "var(--color-heading)" }}>
+          <h3 className="font-semibold tracking-wide truncate text-sm sm:text-base" style={{ color: "var(--color-heading)" }}>
             {item.name}
           </h3>
         </div>
@@ -53,14 +76,12 @@ export default function PremiumCollection() {
         <div className="w-24 h-0.5 mx-auto mt-5 opacity-40" style={{ backgroundColor: "var(--color-heading)" }} />
       </div>
 
-      {/* INFINITE MARQUEE SYSTEM WRAPPER */}
-      <div className={`space-y-8 w-full relative transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "200ms" }}>
-
-        {/* ROW 1: Auto Scrolls Leftwards */}
+      {/* SINGLE ROW MARQUEE */}
+      <div className={`w-full relative transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "200ms" }}>
         <div className="flex w-full overflow-x-hidden relative mask-image-horizontal">
           <div className="flex animate-marquee-left whitespace-nowrap hover:[animation-play-state:paused] pointer-events-auto">
-            {[...productsRow1, ...productsRow1, ...productsRow1].map((item, idx) => (
-              <ProductCard key={`row1-${idx}`} item={item} />
+            {[...products, ...products].map((item, idx) => (
+              <ProductCard key={`product-${idx}`} item={item} />
             ))}
           </div>
         </div>
@@ -68,7 +89,7 @@ export default function PremiumCollection() {
 
       {/* Footer Branding Text */}
       <p className="text-center mt-16 italic tracking-wide text-sm opacity-80" style={{ color: "var(--color-subheading)" }}>
-        Each pot crafted with love & aesthetics ✿
+        Each arrangement crafted with love & aesthetics ✿
       </p>
     </section>
   );
