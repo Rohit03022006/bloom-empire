@@ -1,5 +1,21 @@
     @import "tailwindcss";
 
+    /* Skeleton shimmer for lazy-loaded sections */
+    @keyframes shimmer {
+      0%   { background-position: -600px 0; }
+      100% { background-position: 600px 0; }
+    }
+    .skeleton-shimmer {
+      background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.04) 25%,
+        rgba(201,168,76,0.10) 50%,
+        rgba(255,255,255,0.04) 75%
+      );
+      background-size: 600px 100%;
+      animation: shimmer 1.6s infinite linear;
+    }
+
     @theme {
       --color-background: #2d6449;
       --color-heading: #e7c35f;

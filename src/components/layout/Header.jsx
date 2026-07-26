@@ -16,13 +16,15 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg border-b transition-all duration-300"
+      className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b transition-all duration-300"
       style={{
-        backgroundColor: "var(--color-background)",
-        borderColor: "rgba(201,168,76,0.2)",
+        backgroundColor: "rgba(45, 100, 73, 0.55)",
+        borderColor: "rgba(201,168,76,0.25)",
+        boxShadow: "0 4px 30px rgba(0,0,0,0.15)",
+        WebkitBackdropFilter: "blur(20px)",
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 sm:h-24 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="#home" className="inline-block hover:opacity-90 transition-opacity duration-300">
           <img
@@ -30,6 +32,7 @@ export default function Navbar() {
             alt="Bloom Empire"
             width="180"
             height="80"
+            loading="lazy"
             className="h-14 sm:h-18 lg:h-20 rounded-3xl w-auto object-contain transition-all duration-300"
           />
         </a>
@@ -80,12 +83,13 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Panel Container */}
       <div
-        className={`lg:hidden border-b transition-all duration-300 ease-out absolute top-full left-0 w-full shadow-xl ${
+        className={`lg:hidden border-b transition-all duration-300 ease-out absolute top-full left-0 w-full shadow-xl backdrop-blur-xl ${
           open ? "translate-y-0 opacity-100 visible" : "-translate-y-4 opacity-0 invisible pointer-events-none"
         }`}
         style={{
-          backgroundColor: "var(--color-background)",
+          backgroundColor: "rgba(45, 100, 73, 0.75)",
           borderColor: "rgba(201,168,76,0.2)",
+          WebkitBackdropFilter: "blur(20px)",
         }}
       >
         <div className="flex flex-col px-4 py-5 sm:p-6 gap-4 sm:gap-5 text-center">
