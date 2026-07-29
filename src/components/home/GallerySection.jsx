@@ -91,7 +91,7 @@ export default function GallerySection() {
   const hasMore = visibleCount < galleryData.length;
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       id="gallery"
       className="py-8 sm:py-16 transition-colors duration-300 select-none"
@@ -100,21 +100,22 @@ export default function GallerySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Section Header */}
-        <h2 
-          className={`text-center text-3xl sm:text-5xl font-bold tracking-tight mb-3 sm:mb-4 transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
-          style={{ color: "var(--color-heading)" }}
-        >
-          Our Floral Gallery
-        </h2>
+        <div className="text-center mb-3 sm:mb-4">
+          <h2
+            className={`text-center text-3xl sm:text-5xl font-bold tracking-tight heading-gradient transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
+          >
+            Our Floral Gallery
+          </h2>
+        </div>
 
-        <p 
+        <p
           className="text-center text-sm sm:text-base mb-8 max-w-xl mx-auto opacity-90"
           style={{ color: "var(--color-subheading)" }}
         >
           Explore our complete collection of exquisite handpicked blooms
         </p>
 
-        {/* Tap hint — only visible on touch/mobile */}
+        {/* Tap hint - only visible on touch/mobile */}
         <p
           className="text-center text-xs opacity-50 mb-6 sm:hidden"
           style={{ color: "var(--color-subheading)" }}
@@ -122,13 +123,13 @@ export default function GallerySection() {
           Tap a card to reveal details
         </p>
 
-        {/* 3D Flip Card Grid — 1 col on mobile, 2 on sm, 3 on lg */}
+        {/* 3D Flip Card Grid - 1 col on mobile, 2 on sm, 3 on lg */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {visibleItems.map((item, index) => (
             <div
               key={index}
               className={`h-64 sm:h-80 w-full cursor-pointer group transition-all duration-700 ${isVisible ? "animate-scale-in" : "opacity-0"}`}
-              style={{ 
+              style={{
                 perspective: "1000px",
                 animationDelay: `${(index % 6) * 100}ms`,
               }}
@@ -143,7 +144,7 @@ export default function GallerySection() {
                   borderColor: "rgba(201,168,76,0.15)",
                 }}
               >
-                {/* FRONT — image */}
+                {/* FRONT - image */}
                 <div
                   className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden"
                   style={{ backfaceVisibility: "hidden" }}
@@ -157,19 +158,19 @@ export default function GallerySection() {
                     className="w-full h-full object-cover transform scale-100 group-hover:scale-103 transition-transform duration-500 ease-out"
                   />
                   <div className="absolute inset-0 bg-black/10 opacity-100 group-hover:opacity-0 transition-opacity duration-300" />
-                  
+
                   {/* Title overlay at bottom of image */}
-                  <div 
+                  <div
                     className="absolute bottom-0 inset-x-0 p-3 sm:p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-center justify-between"
                   >
                     <span className="font-semibold text-xs sm:text-sm text-white drop-shadow-md truncate">
                       {item.title}
                     </span>
-                    <span className="text-xs text-amber-200 opacity-80 shrink-0 ml-2">✿</span>
+                    <span className="text-xs text-amber-200 opacity-90 shrink-0 ml-2">✿</span>
                   </div>
                 </div>
 
-                {/* BACK — text */}
+                {/* BACK - text */}
                 <div
                   className="absolute inset-0 w-full h-full rounded-2xl p-4 sm:p-6 flex flex-col justify-center items-center text-center overflow-hidden border"
                   style={{
@@ -187,21 +188,21 @@ export default function GallerySection() {
                     ✿
                   </span>
 
-                  <h3 
+                  <h3
                     className="text-base sm:text-xl font-bold tracking-wide mb-2 sm:mb-3"
                     style={{ color: "var(--color-heading)" }}
                   >
                     {item.title}
                   </h3>
-                  
-                  <p 
+
+                  <p
                     className="text-xs sm:text-sm leading-relaxed max-w-xs"
                     style={{ color: "var(--color-subheading)" }}
                   >
                     {item.desc}
                   </p>
-                  
-                  <span 
+
+                  <span
                     className="mt-4 sm:mt-6 text-[10px] sm:text-xs uppercase tracking-widest font-semibold opacity-60"
                     style={{ color: "var(--color-heading)" }}
                   >
@@ -220,7 +221,7 @@ export default function GallerySection() {
               onClick={handleLoadMore}
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold transition-all duration-300 hover:scale-105 active:scale-95 shadow-md hover:shadow-lg cursor-pointer"
               style={{
-                backgroundColor: "var(--color-button)",
+                background: "var(--color-button)",
                 color: "var(--color-button-text)",
               }}
             >
