@@ -51,7 +51,7 @@ export default function ExclusiveDesigns() {
           </p>
         </div>
 
-        {/* Cards Grid — 1 col on mobile, 2 on sm, 4 on lg */}
+        {/* Cards Grid - 1 col on mobile, 2 on sm, 4 on lg */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
           {designs.map((item, idx) => {
             const Icon = item.icon;
@@ -73,23 +73,24 @@ export default function ExclusiveDesigns() {
                 }}
               >
                 <div>
-                  {/* Icon */}
-                  <div
-                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transition-transform duration-500 group-hover:scale-105"
-                    style={{ background: "rgba(201,168,76,0.15)" }}
-                  >
-                    <Icon
-                      size={22}
-                      style={{ color: "var(--color-background)" }}
-                    />
-                  </div>
+                  {/* Icon & Title Row */}
+                  <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <div
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex-shrink-0 flex items-center justify-center transition-all duration-500 icon-glassmorphism group-hover:scale-110"
+                    >
+                      <Icon
+                        size={22}
+                        style={{ color: "var(--color-background)" }}
+                      />
+                    </div>
 
-                  <h3
-                    className="text-base sm:text-xl font-semibold mb-2 sm:mb-3 tracking-wide"
-                    style={{ color: "var(--color-background)" }}
-                  >
-                    {item.title}
-                  </h3>
+                    <h3
+                      className="text-base sm:text-xl font-semibold tracking-wide"
+                      style={{ color: "var(--color-background)" }}
+                    >
+                      {item.title}
+                    </h3>
+                  </div>
 
                   <p
                     className="leading-relaxed text-sm pb-6 sm:pb-8"
@@ -99,9 +100,9 @@ export default function ExclusiveDesigns() {
                   </p>
                 </div>
 
-                {/* Watermark */}
+                {/* Watermark — Top-left 1/4 showing at bottom-right corner */}
                 <span
-                  className="absolute -bottom-30 -right-15 text-[8rem] sm:text-[14rem] select-none transition-all duration-700 ease-out transform pointer-events-none opacity-5 group-hover:opacity-20 group-hover:scale-110 group-hover:-rotate-12"
+                  className="absolute translate-x-1/3 translate-y-1/3 bottom-0 right-0 text-[8rem] sm:text-[12rem] leading-none select-none transition-all duration-700 ease-out transform pointer-events-none opacity-20 sm:opacity-20 group-hover:opacity-40 group-hover:scale-110 group-hover:rotate-12"
                   style={{ color: "var(--color-background)" }}
                   aria-hidden="true"
                 >
