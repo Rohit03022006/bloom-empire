@@ -79,15 +79,14 @@ export default function ContactSection() {
     <section
       ref={sectionRef}
       id="contact"
-      className="py-8 sm:py-24 overflow-hidden"
+      className="pt-4 pb-8 sm:pt-8 sm:pb-24 overflow-hidden"
       style={{ backgroundColor: "var(--color-background)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div
-          className={`text-center mb-6 sm:mb-16 transition-all duration-700 ${
-            isVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
+          className={`text-center mb-6 sm:mb-16 transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"
+            }`}
         >
           <img
             src={logo}
@@ -99,8 +98,7 @@ export default function ContactSection() {
           />
 
           <h2
-            className="mt-4 sm:mt-6 text-2xl sm:text-4xl md:text-5xl font-bold"
-            style={{ color: "var(--color-heading)" }}
+            className="mt-4 sm:mt-6 text-2xl sm:text-4xl md:text-5xl font-bold heading-gradient"
           >
             Let's Bloom Together
           </h2>
@@ -117,9 +115,8 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
           {/* Contact Info */}
           <div
-            className={`relative rounded-2xl sm:rounded-3xl p-4 sm:p-10 overflow-hidden transition-all duration-700 ${
-              isVisible ? "animate-fade-in-left" : "opacity-0"
-            }`}
+            className={`relative rounded-2xl sm:rounded-3xl p-4 sm:p-10 overflow-hidden transition-all duration-700 ${isVisible ? "animate-fade-in-left" : "opacity-0"
+              }`}
             style={{
               border: "1px solid rgba(201,168,76,.2)",
               background: "rgba(255,255,255,.02)",
@@ -209,13 +206,13 @@ export default function ContactSection() {
                   </h4>
 
                   <p style={{ color: "var(--color-subheading)" }}>
-                    Dilshad Garden, New Delhi, India  
+                    Dilshad Garden, New Delhi, India
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Animated Flower SVG — Desktop only, absolutely positioned */}
+            {/* Animated Flower SVG - Desktop only, absolutely positioned */}
             <div
               className="hidden lg:block absolute -bottom-16 -right-16 select-none pointer-events-none"
               aria-hidden="true"
@@ -272,9 +269,8 @@ export default function ContactSection() {
 
           {/* Form Container */}
           <div
-            className={`rounded-2xl sm:rounded-3xl p-4 sm:p-10 transition-all duration-700 ${
-              isVisible ? "animate-fade-in-right" : "opacity-0"
-            }`}
+            className={`rounded-2xl sm:rounded-3xl p-4 sm:p-10 transition-all duration-700 ${isVisible ? "animate-fade-in-right" : "opacity-0"
+              }`}
             style={{
               border: "1px solid rgba(201,168,76,.2)",
               background: "rgba(255,255,255,.02)",
@@ -408,9 +404,8 @@ export default function ContactSection() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 hover:opacity-90 ${
-                    loading ? "animate-pulse-glow cursor-not-allowed opacity-75" : "cursor-pointer"
-                  }`}
+                  className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 hover:opacity-90 ${loading ? "animate-pulse-glow cursor-not-allowed opacity-75" : "cursor-pointer"
+                    }`}
                   style={{
                     background: "var(--color-button)",
                     color: "var(--color-button-text)",
