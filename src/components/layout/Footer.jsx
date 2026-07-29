@@ -6,7 +6,7 @@ import {
   FaPhoneAlt,
   FaEnvelope,
 } from "react-icons/fa";
-import logo from "../../assets/logo.webp";
+import logo from "../../assets/logo1.png";
 import PolicyModal from "../common/PolicyModal";
 
 export default function Footer() {
@@ -21,21 +21,24 @@ export default function Footer() {
           borderColor: "rgba(201,168,76,0.2)",
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
-            {/* Company */}
-            <div className="transition-all duration-300 sm:col-span-2 lg:col-span-1 text-center sm:text-left">
-              <img
-                src={logo}
-                alt="Bloom Empire"
-                width="180"
-                height="80"
-                className="h-16 sm:h-20 w-auto object-contain transition-transform duration-500 hover:scale-105 mx-auto sm:mx-0"
-                loading="lazy"
-              />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 text-center sm:text-left">
+            
+            {/* Company Info */}
+            <div className="flex flex-col items-center sm:items-start space-y-3">
+              <a href="#home" className="inline-block">
+                <img
+                  src={logo}
+                  alt="Bloom Empire"
+                  width="180"
+                  height="80"
+                  className="h-12 sm:h-16 w-auto object-contain transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
+                />
+              </a>
 
               <p
-                className="mt-4 leading-relaxed text-sm opacity-90"
+                className="leading-relaxed text-sm opacity-90 max-w-sm"
                 style={{ color: "var(--color-subheading)" }}
               >
                 Transforming living spaces into vibrant sanctuaries with bespoke floral arrangements and luxury styling.
@@ -43,9 +46,9 @@ export default function Footer() {
             </div>
 
             {/* Quick Links */}
-            <div className="text-center sm:text-left">
+            <div>
               <h3
-                className="text-xl font-semibold mb-4 tracking-wide relative inline-block after:absolute after:bottom-[-2px] after:left-0 after:w-8 after:h-[1px]"
+                className="text-lg sm:text-xl font-semibold mb-4 tracking-wide relative inline-block after:absolute after:bottom-[-2px] after:left-1/2 sm:after:left-0 after:-translate-x-1/2 sm:after:translate-x-0 after:w-8 after:h-[2px]"
                 style={{
                   color: "var(--color-heading)",
                 }}
@@ -53,7 +56,7 @@ export default function Footer() {
                 Quick Links
               </h3>
 
-              <ul className="space-y-3">
+              <ul className="flex flex-wrap sm:flex-col justify-center gap-x-6 gap-y-2.5 sm:gap-y-3 text-sm">
                 {[
                   { label: "Home", path: "#home" },
                   { label: "About", path: "#about" },
@@ -64,7 +67,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.path}
-                      className="inline-block transition-all duration-300 hover:translate-x-1"
+                      className="inline-block transition-all duration-300 relative py-0.5 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-[var(--color-heading)] hover:after:w-full after:transition-all after:duration-300 hover:scale-105 sm:hover:translate-x-1"
                       style={{ color: "var(--color-subheading)" }}
                       onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-heading)")}
                       onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-subheading)")}
@@ -77,26 +80,26 @@ export default function Footer() {
             </div>
 
             {/* Contact */}
-            <div className="text-center sm:text-left">
+            <div>
               <h3
-                className="text-xl font-semibold mb-4 tracking-wide relative inline-block after:absolute after:bottom-[-2px] after:left-0 after:w-8 after:h-[1px]"
+                className="text-lg sm:text-xl font-semibold mb-4 tracking-wide relative inline-block after:absolute after:bottom-[-2px] after:left-1/2 sm:after:left-0 after:-translate-x-1/2 sm:after:translate-x-0 after:w-8 after:h-[2px]"
                 style={{ color: "var(--color-heading)" }}
               >
-                Contact
+                Contact Us
               </h3>
 
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-3.5 text-sm flex flex-col items-center sm:items-start">
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=Dilshad+Garden+New+Delhi+India"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex justify-center sm:justify-start items-start gap-3 group transition-colors duration-300"
+                  className="flex items-center gap-2.5 group transition-colors duration-300 max-w-xs"
                   style={{ color: "var(--color-subheading)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-heading)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-subheading)")}
                 >
                   <FaMapMarkerAlt
-                    className="mt-1 shrink-0 transition-transform duration-300 group-hover:scale-110"
+                    className="shrink-0 transition-transform duration-300 group-hover:scale-110"
                     style={{ color: "var(--color-heading)" }}
                   />
                   <span>Dilshad Garden, New Delhi, India</span>
@@ -104,13 +107,13 @@ export default function Footer() {
 
                 <a
                   href="tel:+919876543210"
-                  className="flex justify-center sm:justify-start items-start gap-3 group transition-colors duration-300"
+                  className="flex items-center gap-2.5 group transition-colors duration-300"
                   style={{ color: "var(--color-subheading)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-heading)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-subheading)")}
                 >
                   <FaPhoneAlt
-                    className="mt-1 shrink-0 transition-transform duration-300 group-hover:scale-110"
+                    className="shrink-0 transition-transform duration-300 group-hover:scale-110"
                     style={{ color: "var(--color-heading)" }}
                   />
                   <span>+91 9876543210</span>
@@ -118,13 +121,13 @@ export default function Footer() {
 
                 <a
                   href="mailto:info@bloomempire.com"
-                  className="flex justify-center sm:justify-start items-start gap-3 group transition-colors duration-300"
+                  className="flex items-center gap-2.5 group transition-colors duration-300"
                   style={{ color: "var(--color-subheading)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-heading)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-subheading)")}
                 >
                   <FaEnvelope
-                    className="mt-1 shrink-0 transition-transform duration-300 group-hover:scale-110"
+                    className="shrink-0 transition-transform duration-300 group-hover:scale-110"
                     style={{ color: "var(--color-heading)" }}
                   />
                   <span className="break-all">info@bloomempire.com</span>
@@ -133,9 +136,9 @@ export default function Footer() {
             </div>
 
             {/* Social */}
-            <div className="text-center sm:text-left">
+            <div className="flex flex-col items-center sm:items-start">
               <h3
-                className="text-xl font-semibold mb-4 tracking-wide relative inline-block after:absolute after:bottom-[-2px] after:left-0 after:w-8 after:h-[1px]"
+                className="text-lg sm:text-xl font-semibold mb-4 tracking-wide relative inline-block after:absolute after:bottom-[-2px] after:left-1/2 sm:after:left-0 after:-translate-x-1/2 sm:after:translate-x-0 after:w-8 after:h-[2px]"
                 style={{ color: "var(--color-heading)" }}
               >
                 Follow Us
@@ -152,7 +155,7 @@ export default function Footer() {
                     aria-label={social.name}
                     className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 active:scale-95 shadow-md"
                     style={{
-                      backgroundColor: "var(--color-button)",
+                      background: "var(--color-button)",
                       color: "var(--color-button-text)",
                     }}
                   >
@@ -167,21 +170,21 @@ export default function Footer() {
 
           {/* Bottom Bar */}
           <div
-            className="border-t mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
+            className="border-t mt-8 sm:mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left"
             style={{ borderColor: "rgba(201,168,76,0.2)" }}
           >
             <p
-              className="text-xs sm:text-sm text-center md:text-left order-2 md:order-1 opacity-80"
+              className="text-xs sm:text-sm order-2 sm:order-1 opacity-80"
               style={{ color: "var(--color-subheading)" }}
             >
               © 2026 Bloom Empire. All Rights Reserved.
             </p>
 
-            <div className="flex flex-wrap justify-center md:justify-end gap-4 sm:gap-6 text-xs sm:text-sm order-1 md:order-2">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm order-1 sm:order-2">
               <button
                 type="button"
                 onClick={() => setActiveModal("privacy")}
-                className="transition-colors duration-300 relative cursor-pointer after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] hover:after:w-full after:transition-all after:duration-300"
+                className="transition-colors duration-300 relative py-0.5 cursor-pointer opacity-90 hover:opacity-100 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-[var(--color-heading)] hover:after:w-full after:transition-all after:duration-300"
                 style={{ color: "var(--color-subheading)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-heading)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-subheading)")}
@@ -189,15 +192,17 @@ export default function Footer() {
                 Privacy Policy
               </button>
 
+              <span className="opacity-30">•</span>
+
               <button
                 type="button"
                 onClick={() => setActiveModal("terms")}
-                className="transition-colors duration-300 relative cursor-pointer after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] hover:after:w-full after:transition-all after:duration-300"
+                className="transition-colors duration-300 relative py-0.5 cursor-pointer opacity-90 hover:opacity-100 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-[var(--color-heading)] hover:after:w-full after:transition-all after:duration-300"
                 style={{ color: "var(--color-subheading)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-heading)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-subheading)")}
               >
-                Terms & Conditions
+                Terms &amp; Conditions
               </button>
             </div>
           </div>
