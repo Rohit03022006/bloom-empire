@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../../assets/logo.webp";
+import logo from "../../assets/logo1.png";
 
 // 1. Core Icons Imported here
 import { HiMenuAlt3, HiX } from "react-icons/hi";
@@ -24,16 +24,16 @@ export default function Navbar() {
         WebkitBackdropFilter: "blur(20px)",
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="inline-block hover:opacity-90 transition-opacity duration-300">
+        <a href="#home" className="inline-flex items-center hover:opacity-90 transition-opacity duration-300">
           <img
             src={logo}
             alt="Bloom Empire"
             width="180"
             height="80"
             loading="lazy"
-            className="h-14 sm:h-18 lg:h-20 rounded-3xl w-auto object-contain transition-all duration-300"
+            className="h-10 sm:h-12 lg:h-14 w-auto object-contain transition-all duration-300"
           />
         </a>
 
@@ -55,7 +55,7 @@ export default function Navbar() {
           href="#contact"
           className="hidden lg:inline-flex px-6 py-3 rounded-full font-semibold hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm hover:shadow-md"
           style={{
-            backgroundColor: "var(--color-button)",
+            background: "var(--color-button)",
             color: "var(--color-button-text)",
           }}
         >
@@ -115,7 +115,7 @@ export default function Navbar() {
               open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
             style={{
-              backgroundColor: "var(--color-button)",
+              background: "var(--color-button)",
               color: "var(--color-button-text)",
               transitionDelay: `${navLinks.length * 50}ms`,
             }}
