@@ -2,26 +2,30 @@
 
     /* Skeleton shimmer for lazy-loaded sections */
     @keyframes shimmer {
-      0%   { background-position: -600px 0; }
-      100% { background-position: 600px 0; }
+      0% {
+        background-position: -600px 0;
+      }
+
+      100% {
+        background-position: 600px 0;
+      }
     }
+
     .skeleton-shimmer {
-      background: linear-gradient(
-        90deg,
-        rgba(255,255,255,0.04) 25%,
-        rgba(201,168,76,0.10) 50%,
-        rgba(255,255,255,0.04) 75%
-      );
+      background: linear-gradient(90deg,
+          rgba(255, 255, 255, 0.04) 25%,
+          rgba(201, 168, 76, 0.10) 50%,
+          rgba(255, 255, 255, 0.04) 75%);
       background-size: 600px 100%;
       animation: shimmer 1.6s infinite linear;
     }
 
     @theme {
-      --color-background: #2d6449;
-      --color-heading: #e7c35f;
+      --color-background: #1c3a2b;
+      --color-heading: #ffba33;
       --color-subheading: #F5F0DC;
-      --color-button: #C9A84C;
-      --color-button-text: #2d6449;
+      --color-button: linear-gradient(to right, #f6a200, #ffba33, #f6a200);
+      --color-button-text: #1c3a2b;
 
       --font-heading: 'Playfair Display', serif;
       --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
@@ -35,6 +39,7 @@
       font-display: swap;
       src: url('/fonts/playfair-display-400.woff2') format('woff2');
     }
+
     @font-face {
       font-family: 'Playfair Display';
       font-style: normal;
@@ -42,6 +47,7 @@
       font-display: swap;
       src: url('/fonts/playfair-display-600.woff2') format('woff2');
     }
+
     @font-face {
       font-family: 'Playfair Display';
       font-style: normal;
@@ -49,6 +55,7 @@
       font-display: swap;
       src: url('/fonts/playfair-display-700.woff2') format('woff2');
     }
+
     @font-face {
       font-family: 'Playfair Display';
       font-style: normal;
@@ -59,223 +66,305 @@
 
     /* Design tokens: central color variables */
     :root {
-        --color-background: #2d6449;
-        --color-heading: #e7c35f;
-        --color-subheading: #F5F0DC;
-        --color-button: #C9A84C;
-        --color-button-text: #2d6449;
+      --color-background: #1c3a2b;
+      --color-heading: #ffba33;
+      --color-heading-gradient: linear-gradient(to right, #f6a200, #ffba33, #f6a200);
+      --color-subheading: #F5F0DC;
+      --color-button: linear-gradient(to right, #f6a200, #ffba33, #f6a200);
+      --color-button-text: #1c3a2b;
 
-        --font-heading: 'Playfair Display', serif;
-        --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --font-heading: 'Playfair Display', serif;
+      --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    .heading-gradient {
+      background: linear-gradient(to right, #f6a200, #ffba33, #f6a200);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+      padding-bottom: 0.15em;
+      line-height: 1.25;
+    }
+
+    /* Premium Solid Icon Styling */
+    .icon-premium {
+      background: linear-gradient(to right, #f6a200, #ffba33, #f6a200);
+      color: #1c3a2b !important;
+      box-shadow: 0 4px 15px -2px rgba(246, 162, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Premium Glassmorphism Icon Styling */
+    .icon-glassmorphism {
+      background: linear-gradient(135deg, rgba(246, 162, 0, 0.25), rgba(255, 186, 51, 0.4), rgba(246, 162, 0, 0.25));
+      border: 1px solid rgba(246, 162, 0, 0.35);
+      box-shadow: 0 4px 15px -2px rgba(246, 162, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.4);
     }
 
 
     html {
-        scroll-behavior: smooth;
-        overflow-x: hidden;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
-    /* Custom Luxury Gold & Emerald Scrollbar */
+    /* Custom Luxury Gold & Emerald Scrollbar (Desktop) */
     ::-webkit-scrollbar {
-        width: 10px;
-        height: 10px;
+      width: 6px;
+      height: 6px;
     }
 
     ::-webkit-scrollbar-track {
-        background: #1c4230;
+      background: #11261c;
     }
 
     ::-webkit-scrollbar-thumb {
-        background: #C9A84C;
-        border-radius: 5px;
-        border: 2px solid #1c4230;
+      background: linear-gradient(to bottom, #f6a200, #ffba33);
+      border-radius: 9999px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-        background: #e7c35f;
+      background: #ffba33;
     }
 
-    /* Firefox scrollbar styling */
-    * {
-        scrollbar-width: thin;
-        scrollbar-color: #C9A84C #1c4230;
+    /* Hide scrollbar on mobile/touch screens for clean UI */
+    @media (max-width: 640px) {
+      ::-webkit-scrollbar {
+        width: 0px;
+        height: 0px;
+        display: none;
+      }
+      * {
+        scrollbar-width: none;
+      }
     }
 
     /* apply base background and default text color and fonts */
     body {
-        font-family: var(--font-sans);
-        background-color: var(--color-background);
-        color: var(--color-subheading);
-        overflow-x: hidden;
-        width: 100%;
+      font-family: var(--font-sans);
+      background-color: var(--color-background);
+      color: var(--color-subheading);
+      overflow-x: hidden;
+      width: 100%;
     }
 
     /* Use Playfair for headings */
-    h1, h2, h3, h4, h5, h6 {
-        font-family: var(--font-heading);
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--font-heading);
     }
 
     @keyframes marqueeLeft {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-33.333%); }
-}
+      0% {
+        transform: translateX(0%);
+      }
 
-@keyframes marqueeRight {
-  0% { transform: translateX(-33.333%); }
-  100% { transform: translateX(0%); }
-}
+      100% {
+        transform: translateX(-33.333%);
+      }
+    }
 
-.animate-marquee-left {
-  animation: marqueeLeft 25s linear infinite;
-}
+    @keyframes marqueeRight {
+      0% {
+        transform: translateX(-33.333%);
+      }
 
-.animate-marquee-right {
-  animation: marqueeRight 25s linear infinite;
-}
+      100% {
+        transform: translateX(0%);
+      }
+    }
 
-/* Optional: Creates a premium fade-out effect on the left & right viewport edges */
-.mask-image-horizontal {
-  mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
-}
+    .animate-marquee-left {
+      animation: marqueeLeft 25s linear infinite;
+    }
 
-/* Custom GPU-Friendly Keyframes & Animations */
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translate3d(-30px, 0, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
+    .animate-marquee-right {
+      animation: marqueeRight 25s linear infinite;
+    }
 
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translate3d(30px, 0, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
+    /* Optional: Creates a premium fade-out effect on the left & right viewport edges */
+    .mask-image-horizontal {
+      mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+    }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 30px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
+    /* Custom GPU-Friendly Keyframes & Animations */
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translate3d(-30px, 0, 0);
+      }
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale3d(0.96, 0.96, 1);
-  }
-  to {
-    opacity: 1;
-    transform: scale3d(1, 1, 1);
-  }
-}
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
 
-.animate-fade-in-left {
-  animation: fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  will-change: transform, opacity;
-}
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translate3d(30px, 0, 0);
+      }
 
-.animate-fade-in-right {
-  animation: fadeInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  will-change: transform, opacity;
-}
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  will-change: transform, opacity;
-}
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+      }
 
-.animate-scale-in {
-  animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  will-change: transform, opacity;
-}
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
 
-/* Premium success animations */
-@keyframes checkmarkDraw {
-  0% {
-    stroke-dashoffset: 50;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale3d(0.96, 0.96, 1);
+      }
 
-@keyframes scaleInCircular {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
+      to {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+      }
+    }
 
-.animate-circle-scale {
-  animation: scaleInCircular 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
+    .animate-fade-in-left {
+      animation: fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      will-change: transform, opacity;
+    }
 
-.animate-checkmark-draw {
-  stroke-dasharray: 50;
-  stroke-dashoffset: 50;
-  animation: checkmarkDraw 0.5s cubic-bezier(0.65, 0, 0.45, 1) 0.3s forwards;
-}
+    .animate-fade-in-right {
+      animation: fadeInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      will-change: transform, opacity;
+    }
 
-/* Pulsing loader effect for form submit button */
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 15px 4px rgba(201, 168, 76, 0.7);
-  }
-}
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      will-change: transform, opacity;
+    }
 
-.animate-pulse-glow {
-  animation: pulseGlow 1.5s infinite ease-in-out;
-}
+    .animate-scale-in {
+      animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      will-change: transform, opacity;
+    }
 
-/* Animated SVG Flower — Contact Section */
-@keyframes flowerOuterSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
+    /* Premium success animations */
+    @keyframes checkmarkDraw {
+      0% {
+        stroke-dashoffset: 50;
+      }
 
-@keyframes flowerInnerSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
 
-@keyframes petalPulse {
-  0%, 100% { opacity: 0.4; transform-origin: 100px 100px; }
-  50%       { opacity: 0.9; }
-}
+    @keyframes scaleInCircular {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
 
-@keyframes corePulse {
-  0%, 100% { r: 18; opacity: 0.5; }
-  50%       { r: 22; opacity: 0.9; }
-}
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
 
-/* Accessibility: Respect user choices for reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
+    .animate-circle-scale {
+      animation: scaleInCircular 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    .animate-checkmark-draw {
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+      animation: checkmarkDraw 0.5s cubic-bezier(0.65, 0, 0.45, 1) 0.3s forwards;
+    }
+
+    /* Pulsing loader effect for form submit button */
+    @keyframes pulseGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 0 15px 4px rgba(201, 168, 76, 0.7);
+      }
+    }
+
+    .animate-pulse-glow {
+      animation: pulseGlow 1.5s infinite ease-in-out;
+    }
+
+    /* Animated SVG Flower - Contact Section */
+    @keyframes flowerOuterSpin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes flowerInnerSpin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes petalPulse {
+
+      0%,
+      100% {
+        opacity: 0.4;
+        transform-origin: 100px 100px;
+      }
+
+      50% {
+        opacity: 0.9;
+      }
+    }
+
+    @keyframes corePulse {
+
+      0%,
+      100% {
+        r: 18;
+        opacity: 0.5;
+      }
+
+      50% {
+        r: 22;
+        opacity: 0.9;
+      }
+    }
+
+    /* Accessibility: Respect user choices for reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
