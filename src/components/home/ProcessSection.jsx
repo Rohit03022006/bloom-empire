@@ -33,18 +33,19 @@ export default function ProcessSection() {
     <section
       ref={sectionRef}
       id="process"
-      className="py-8 sm:py-24 transition-colors duration-300 overflow-hidden"
+      className="py-4 sm:py-10 transition-colors duration-300 overflow-hidden"
       style={{ backgroundColor: "var(--color-background)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Section Header */}
-        <h2
-          className={`text-center text-3xl sm:text-5xl font-bold tracking-tight mb-6 sm:mb-24 transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
-          style={{ color: "var(--color-heading)" }}
-        >
-          Our Styling Journey
-        </h2>
+        <div className="text-center mb-6 sm:mb-24">
+          <h2
+            className={`text-center text-3xl sm:text-5xl font-bold tracking-tight heading-gradient transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
+          >
+            Our Styling Journey
+          </h2>
+        </div>
 
         {/* ── MOBILE LAYOUT: simple vertical card stack ── */}
         <div className="flex flex-col gap-4 md:hidden">
@@ -62,8 +63,8 @@ export default function ProcessSection() {
               >
                 {/* Icon badge */}
                 <div
-                  className="w-11 h-11 shrink-0 rounded-full flex items-center justify-center text-lg"
-                  style={{ backgroundColor: "rgba(201,168,76,0.1)", color: "var(--color-heading)" }}
+                  className="w-11 h-11 shrink-0 rounded-full flex items-center justify-center text-lg icon-premium transition-all duration-300 group-hover:scale-110"
+                  style={{ color: "var(--color-button-text)" }}
                 >
                   <Icon />
                 </div>
@@ -101,7 +102,7 @@ export default function ProcessSection() {
                     }`}
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
-                  {/* LEFT CONTENT — shown when isLeft, spacer when !isLeft */}
+                  {/* LEFT CONTENT - shown when isLeft, spacer when !isLeft */}
                   <div className="w-1/2 flex justify-end pr-16">
                     {isLeft ? (
                       <div className="max-w-md text-right space-y-3 p-6 rounded-2xl border border-transparent hover:border-[rgba(201,168,76,0.15)] hover:bg-[rgba(201,168,76,0.02)] transition-all duration-300 hover:-translate-y-1 transform">
@@ -119,19 +120,15 @@ export default function ProcessSection() {
 
                   {/* CENTER NODE */}
                   <div
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex w-14 h-14 rounded-full items-center justify-center border-2 transition-all duration-500 group-hover:scale-110"
-                    style={{
-                      backgroundColor: "var(--color-background)",
-                      borderColor: "var(--color-heading)",
-                    }}
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex w-14 h-14 rounded-full items-center justify-center icon-premium transition-all duration-500 group-hover:scale-110"
                   >
                     <Icon
-                      className="text-lg transition-transform duration-500 group-hover:rotate-12"
-                      style={{ color: "var(--color-heading)" }}
+                      className="text-xl transition-transform duration-500"
+                      style={{ color: "var(--color-button-text)" }}
                     />
                   </div>
 
-                  {/* RIGHT CONTENT — shown when !isLeft, spacer when isLeft */}
+                  {/* RIGHT CONTENT - shown when !isLeft, spacer when isLeft */}
                   <div className="w-1/2 flex justify-start pl-16">
                     {!isLeft ? (
                       <div className="max-w-md text-left space-y-3 p-6 rounded-2xl border border-transparent hover:border-[rgba(201,168,76,0.15)] hover:bg-[rgba(201,168,76,0.02)] transition-all duration-300 hover:-translate-y-1 transform">
